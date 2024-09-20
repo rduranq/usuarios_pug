@@ -1,0 +1,18 @@
+extends ../layout 
+
+block content
+  h1 Detalles del Usuario
+
+  .card
+    .card-body
+      h5.card-title #{user.name}
+      h6.card-subtitle.text-muted Username: #{user.username}
+      p.card-text Email: #{user.email}
+      p.card-text Rol: #{user.rol}
+      if user.imagen
+        img(src=user.imagen width="100" class="my-2")
+      p.card-text Última actualización: #{user.updatedAt}
+      
+      a(href=`/users/${user.id}/edit` class="btn btn-warning") Editar
+      form(action=`/users/${user.id}/delete` method="POST" class="d-inline ms-2")
+        button(type="submit" class="btn btn-danger") Eliminar

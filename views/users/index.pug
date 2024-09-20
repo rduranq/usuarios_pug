@@ -1,0 +1,31 @@
+extends ../layout 
+
+block content
+  h1 Lista de Usuarios
+
+  a(href='/users/create' class="btn btn-primary mb-3") Nuevo Usuario
+
+  table.table.table-bordered
+    thead
+      tr
+        th Nombre
+        th Username
+        th Email
+        th Rol
+        th Imagen
+        th Acciones
+    tbody
+      each user in users
+        tr
+          td #{user.name}
+          td #{user.username}
+          td #{user.email}
+          td #{user.rol}
+          td
+            if user.imagen
+              img(src=user.imagen width="50")
+          td
+            a(href=`/users/${user.id}` class="btn btn-info btn-sm") Ver
+            a(href=`/users/${user.id}/edit` class="btn btn-warning btn-sm ms-2") Editar
+            form(action=`/users/${user.id}/delete` method="POST" class="d-inline ms-2")
+              button(type="submit" class="btn btn-danger btn-sm") Eliminar

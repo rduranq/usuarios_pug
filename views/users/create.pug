@@ -1,0 +1,31 @@
+extends ../layout 
+
+block content
+  h1 Crear Usuario
+
+  form(action="/users" method="POST" enctype="multipart/form-data")
+    .mb-3
+      label(for="name" class="form-label") Nombre
+      input#name.form-control(type="text" name="name" required)
+
+    .mb-3
+      label(for="username" class="form-label") Username
+      input#username.form-control(type="text" name="username" required)
+
+    .mb-3
+      label(for="password" class="form-label") Contraseña
+      input#password.form-control(type="password" name="password" required)
+
+    .mb-3
+      label(for="email" class="form-label") Email
+      input#email.form-control(type="email" name="email" required)
+
+    .mb-3
+      label(for="imagen" class="form-label") Imagen
+      input#imagen.form-control(type="file" name="imagen")
+
+    .mb-3
+      label(for="rol" class="form-label") Rol
+      input#rol.form-control(type="text" name="rol" required)
+
+    button.btn.btn-primary(type="submit") Crear Usuario
