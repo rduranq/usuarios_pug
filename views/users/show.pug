@@ -9,6 +9,7 @@ block content
       h6.card-subtitle.text-muted Username: #{user.username}
       p.card-text Email: #{user.email}
       p.card-text Rol: #{user.rol}
+      p.card-text Archivo: #{user.imagen}
       if user.imagen
         img(src=user.imagen width="100" class="my-2")
       p.card-text Última actualización: #{user.updatedAt}
